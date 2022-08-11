@@ -4,6 +4,7 @@ Git é um repositório para controle de versões, bastante utilizado por desenvo
     
     *Comandos Git bash:
     
+    - ls: serve para verificarmos os arquivos na pasta (git bash)
     - git init: Faz com que o git inicie e utilize o local desejado como um repositório
     - git status: Faz uma verificação no repositório dos arquivos que constam dentro dele, como por exemplo, se os arquivos já foram atualizados ou não 
     - git add: Adiciona arquivos para serem monitorados pelo git. Se utilizarmos um git status agora, após adicionarmos novos arquivos, o git irá nos mostrar esses arquivos para serem "comitados". Caso haja mais de 1 arquivo para ser adicionado, podemos colocar um ponto após o comando(git add .), assim, todos os arquivos dentro do repositório serão adicionados.
@@ -88,6 +89,38 @@ Mas nosso repositório está vazio, pois o nosso servidor não puxou as informa�
 
 < Sincronizando dados >
 
+No momento, temos o Ulisses, que agora poderá enviar os dados para o servidor, e temos a Claudia, e ambos se conectarão ao mesmo servidor. Estes também são os nomes das nossas pastas, uma para representar cada usuário, além do próprio servidor. Então, agora precisaremos fazer com que o Ulisses envie os seus dados para o servidor.
 
+No Git Bash, digitaremos cd ../Ulisses/ e, depois, git remote para confirmarmos a existência de local — mas como será que incluímos o repositório nele? Empurraremos as modificações, portanto usaremos o comando git push, que não é o suficiente por si só, uma vez que não estamos sendo explícitos.
+    
+    git push (para onde enviar) (de onde enviar)
+
+    git push local master
+
+O comando será git push local master, e assim, serão enviados todos os dados por todos os códigos e alterações feitas até então para nosso repositório que chamamos de "local", dentro de "servidor". Após pressionarmos "Enter", teremos a mensagem de que uma nova branch (ramo) foi criada em "servidor", chamada master.
+
+Vamos nos logar como Claudia, digitando cd ../Claudia/projeto/, e executar ls para verificar se o arquivo HTML está contido ali, o que não acontece, pois o usuário Ulisses enviou os dados para o servidor, mas a Claudia não os trouxe para o seu próprio repositório. Para isso, executaremos o comando git pull, mas se digitarmos git remote, teremos origin. O que é isso? De onde ele vem?
+
+    git remote rename (nome atual) (novo nome)
+
+    git remote rename origin local
+
+Iremos renomeá-la de local também, por meio de git remote rename origin local. Assim, manteremos a paridade com a nomenclatura do Vinicius. Em seguida, executaremos git pull local master para trazermos os dados. Ainda falaremos melhor sobre branches, no entanto sabemos que estamos trabalhando com master por ora. Desta vez, com ls teremos index.html listado, como gostaríamos.
+
+    git pull (de onde queremos trazer dados) (para onde traremos dados)
+
+    git pull local master
+
+Para garantir que o conteúdo está igual, no VS Code adicionaremos uma pasta da Ana no projeto, chamada "projeto". Com isto, passaremos a ter a pasta "vinicius" e "projeto", e o index.html é igual para ambos, isto é, os conteúdos estão sincronizados. Além disso, o "ide-config" que adicionamos em ".gitignore" não foi enviado, pois configuramos para que fosse assim, lembra?
+
+Assim, conseguimos começar a sincronizar os dados do Ulisses e da Claudia; se ela atualizar algo em alguma parte do código, uma vez estando logados como Ana, utilizaremos git status, teremos o aviso de que a modificação foi realizada, executaremos git add index.html, seguido por git commit -m "Renomeando curso de Integração Contínua".
+
+Será que se logarmos como Vinicius conseguiremos verificar esta alteração?
+
+Ainda não, pois não enviamos os dados; faremos isto com git push local master. Nos logaremos como Vinicius e, antes de mais nada, se executarmos git status, teremos que não há nada a ser enviado, mas que teremos o que trazer de volta. Vamos executar git pull local master. É exibido que houve uma única alteração, a remoção de uma linha e adição de outra.
+
+Ao executarmos git log -p, veremos as modificações realizadas, e se abrirmos o arquivo HTML no VS Code, teremos a alteração implementada no arquivo da pasta do Vinicius também. Agora, passamos a sincronizar os dados e modificações entre os integrantes da nossa equipe.
+
+E se não quisermos criar um servidor, ou se não pudermos criar um servidor local, muito menos compartilhar uma pasta no computador? E se quisermos colocar o conteúdo em algum servidor online? Será que existe um serviço que nos permita um repositório Git online?
 
 */
