@@ -60,7 +60,7 @@ Vamos criar um servidor para o nosso código, afim de que outras pessoas também
 
 Após a criação dessa nova pasta(servidor), vamos dar o seguinte comando:
     
-    git init --bare: esse paramentro "bare" significa que, esse repositório é puro, e sé contem as alterações dos arquivos, não contendo uma cópia de cada um deles física, dificultando o acesso dos mesmos. Isso traz algumas facilidades, e nos permite que adicionemos esse repositório como remoto em outro.
+    git init --bare: esse paramentro "bare" significa que, esse repositório é puro, e contem as alterações dos arquivos, não contendo uma cópia de cada um deles física, dificultando o acesso dos mesmos. Isso traz algumas facilidades, e nos permite que adicionemos esse repositório como remoto em outro.
     
 Bem, agora com o nosso repositório servidor criado, vamos voltar ao nosso repositório local. Já temos o nosso repositório local e o repositório servidor, precisamos fazer com que, o nosso repositório local conheça o nosso servidor. Para isso faremos o seguinte:
     
@@ -68,23 +68,23 @@ Bem, agora com o nosso repositório servidor criado, vamos voltar ao nosso repos
 
     git remote add: com esse comando, iremos adicionar um novo caminho para o nosso repositório local ter acesso ao repositório servidor. Podemos dar um nome para esse repositório e em seguida, iremos informar o caminho para ele. Daremos o nome de local, pois o nosso servidor se encontra dentro da nossa máquina, mas ele pode estar em outro lugar, como em um servidor remoto, em um link remoto, fora desse computador. 
         
-        git remote add local C:/Users/miche/Desktop/Preto/servidor/
+        git remote add local C:/Users/miche/Desktop/Preto/git-e-github/Servidor/
 
     Vale lembrar que esse caminho pode ser qualquer coisa, desde um caminho em nossa maquina, a uma url para um servidor.
 
     git remote -v: serve para mostrar se o endereço do servidor está correto, além de mostrar onde ele irá buscar dados(fetch), e onde irá enviar dados(push)
     
-Ok, já temos o nosso servidor remoto, agora imagine que temos a ana, que irá trabalhar conosco no mesmo projeto. Como ela faria para acessar aos dados e baixa-los na sua máquina? Vamos ver:
+Ok, já temos o nosso servidor remoto, agora imagine que temos a Claudia, que irá trabalhar conosco no mesmo projeto. Como ela faria para acessar aos dados e baixa-los na sua máquina? Vamos ver:
     
     git clone: Quando iremos trazer pela primeira vez, todos os dados de um repositório remoto para um repositório local. Exemplo
       
-        git clone /c/Users/miche/Desktop/Preto/servidor projeto
+        git clone /c/Users/miche/Desktop/Preto/git-e-github/Servidor/ projeto
     
     Esse formato pode variar dependendo do terminal que você utiliza, no nosso caso, o git bash.
 
-O que está acontecendo afinal? Estamos trazendo(clonando), pela primeira vez os dados da pasta servidor para a pasta ana, assim, criando dentro da pasta ana uma pasta servidor, que no caso, estamos renomeando para "projeto".
+O que está acontecendo afinal? Estamos trazendo(clonando), pela primeira vez os dados da pasta servidor para a pasta Claudia, assim, criando dentro da pasta Claudia uma pasta servidor, que no caso, estamos renomeando para "projeto".
 
-Mas nosso repositório está vazio, pois o nosso servidor não puxou as informações do nosso repositório local. Logo a ana não tem os dados para começar a trabalhar.
+Mas nosso repositório está vazio, pois o nosso servidor não puxou as informações do nosso repositório local. Logo a Claudia não tem os dados para começar a trabalhar.
 
 < Sincronizando dados >
 
